@@ -82,3 +82,16 @@ private:
 
 }; // class Mat44
 
+//Matrix Multiplication 
+inline Mat44 operator*(const Mat44& i_left, const Mat44& i_right);
+// V = M * V
+inline Vec4D operator*(const Mat44& i_left, const Vec4D& i_right);
+// V = V * M
+inline Vec4D operator*(const Vec4D& i_left, const Mat44& i_right);
+
+} // namespace math
+} // namespace engine
+
+#include "Mat44-inl.h"
+
+#endif // ENGINE_MAT44_H_
