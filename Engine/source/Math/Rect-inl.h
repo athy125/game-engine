@@ -58,4 +58,19 @@ inline void Rect::SetRect(float i_x, float i_y, float i_width, float i_height)
     {
         return (origin_ == i_rect.origin_ && size_ == i_rect.size_);
     }
+inline bool Rect::ContainsPoint(const Vec2D& i_point) const
+    {
+        return (i_point.x() >= GetMinX() && i_point.x() <= GetMaxX() &&
+            i_point.y() >= GetMinY() && i_point.y() <= GetMaxY());
+    }
 
+    inline bool Rect::IntersectsRect(const Rect& i_rect) const
+    {
+        return !(GetMaxX() < i_rect.GetMinX() ||
+            i_rect.GetMaxX() < GetMinX() ||
+            GetMaxY() < i_rect.GetMinY() ||
+            i_rect.GetMaxY() < GetMinY());
+    }
+
+} // namespace math
+} // namespace engine
