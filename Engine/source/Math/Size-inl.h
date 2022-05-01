@@ -29,3 +29,21 @@ namespace math {
         height_ = i_height;
     }
 
+   inline void Size::set(float i_width, float i_height)
+    {
+        ASSERT(!IsNaN(i_width) && !IsNaN(i_height));
+        width_ = i_width;
+        height_ = i_height;
+    }
+
+    inline Size& Size::operator=(const Size& i_copy)
+    {
+        // check for self assignment
+        if (this != &i_copy)
+        {
+            width_ = i_copy.width_;
+            height_ = i_copy.height_;
+        }
+        return *this;
+    }
+
