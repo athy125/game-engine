@@ -22,4 +22,36 @@ namespace math {
 
         ~Rect()
         {}
+// accessors and mutators
+        inline void SetRect(float i_x, float i_y, float i_width, float i_height);
+        inline float GetMinX() const;
+        inline float GetMinY() const;
+        inline float GetMaxX() const;
+        inline float GetMaxY() const;
 
+        // assignment
+        inline Rect& operator=(const Rect& i_copy);
+
+        // relational
+        inline bool operator==(const Rect& i_rect) const;
+        inline bool operator!=(const Rect& i_rect) const;
+
+        // functions
+        inline bool Equals(const Rect& i_rect) const;
+        inline bool ContainsPoint(const Vec2D& i_point) const;
+        inline bool IntersectsRect(const Rect& i_rect) const;
+
+        // constants
+        static const Rect           ZERO;
+
+    protected:
+        Vec2D                       origin_;
+        Size                        size_;
+    }; // class Rect
+
+} // namespace math
+} // namespace engine
+
+#include "Rect-inl.h"
+
+#endif // RECT_H_
